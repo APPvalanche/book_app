@@ -9,11 +9,11 @@ const Navbar = () => {
     },
     {
       name: "Books",
-      href: "/",
+      href: "/Books",
     },
     {
       name: "AddBook",
-      href: "/",
+      href: "/AddBook",
     },
   ];
 

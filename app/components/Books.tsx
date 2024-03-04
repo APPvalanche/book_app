@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -17,7 +16,8 @@ async function getData() {
         _id,
         "imageUrl": image.asset->url,
           name,
-          author
+          author,
+          "slug": slug.current,
       }`;
 
   const data = await client.fetch(query);
@@ -31,7 +31,7 @@ export default async function Books() {
   return (
     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8">
       {data.map((book) => (
-        <div key={book._id} className="group relative">
+        <div key={book.slug} className="group relative">
           <div className="aspect-square w-full">
             <Card className="flex flex-col">
               <CardHeader>
@@ -49,7 +49,7 @@ export default async function Books() {
               </CardHeader>
               <CardContent>
                 <Button>
-                  <Link href={book._id}>Book Details</Link>
+                  <Link href={`/book/${book.slug}`}>Book Details</Link>
                 </Button>
               </CardContent>
             </Card>
