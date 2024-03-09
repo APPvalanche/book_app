@@ -13,8 +13,8 @@ const links = [
     href: "/Books",
   },
   {
-    name: "New",
-    href: "/New",
+    name: "Add Book",
+    href: "/EditBook",
   },
 ];
 

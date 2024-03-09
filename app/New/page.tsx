@@ -47,7 +47,7 @@ export default async function NewBook() {
             </p>
           </div>
           <div className="mt-4">
-            <Button className="text-white font-semibold py-2 px-4 rounded">
+            <Button className="text-white w-full font-semibold py-2 px-4 rounded">
               <Link href={`/EditBook`}>Edit Book</Link>
             </Button>
           </div>
