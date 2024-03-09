@@ -15,3 +15,10 @@ export interface fullBook {
   description: string;
   slug: string;
 }
+
+export interface bookData {
+  imageUrl: string;
+  name: string;
+  author: string;
+  description: string;
+}
