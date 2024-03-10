@@ -1,14 +1,16 @@
-
-import { useState, FormEvent } from "react";
+import React, { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import Dropzone from "react-dropzone";
 
-const NewBookForm = () => {
-  const [name, setName] = useState("");
-  const [author, setAuthor] = useState("");
+interface NewBookFormProps {}
+
+const NewBookForm: React.FC<NewBookFormProps> = () => {
+  const [name, setName] = useState<string>("");
+  const [author, setAuthor] = useState<string>("");
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [description, setDescription] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [description, setDescription] = useState<string>("");
+  const [slug, setSlug] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ const NewBookForm = () => {
       formData.append("name", name);
       formData.append("author", author);
       formData.append("description", description);
+      formData.append("slug", slug);
       if (imageFile) {
         formData.append("image", imageFile);
       }
@@ -33,9 +36,10 @@ const NewBookForm = () => {
       }
 
       setName("");
-      setAuthor("");
+      setAuthor("r");
       setImageFile(null);
       setDescription("");
+      setSlug("");
       console.log("Book added successfully!");
     } catch (error) {
       console.error("Error adding book:", error);
@@ -68,6 +72,15 @@ const NewBookForm = () => {
           type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2">Slug:</label>
+        <input
+          type="text"
+          value={slug}
+          onChange={(e) => setSlug(e.target.value)}
           className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>

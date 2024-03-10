@@ -36,15 +36,15 @@ export default async function BookPage({
           </p>
           <p className="text-gray-700">{data.description}</p>
         </div>
-        <div className="flex w-full lg:w-1/2">
+        <div className="flex w-full lg:w-1/2 items-center justify-center">
           <div className="w-full">
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+            <div className="rounded-lg overflow-hidden">
               <Image
                 src={data.imageUrl}
                 alt={data.name}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
+                width={500}
+                height={500}
+                className="object-contain h-[500px]"
               />
             </div>
           </div>

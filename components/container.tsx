@@ -3,7 +3,7 @@ interface ContainerProps {
 }
 
 const Container = ({ children }: ContainerProps) => {
-  return <div className="bg-white pb-6 sm:pb-8 lg:pb-12">{children}</div>;
+  return <div className="bg-white max-w-[1400px] mx-auto px-4">{children}</div>;
 };
 
 export default Container;
